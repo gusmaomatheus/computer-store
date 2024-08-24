@@ -1,4 +1,4 @@
-export default function Input({ id, name, type, label, placeholder = "", value, onChange }) {
+export default function Input({ id, name, type, label, placeholder = "", value = "", onChange }) {
   return (
     <div className="flex flex-col gap-y-[8px]">
       <label htmlFor={id} className="text-[22px] pl-[2px]">
