@@ -13,11 +13,30 @@ export default function App() {
 
   useEffect(() => {
     getSections();
+    getBrands();
   }, []);
 
   async function getSections() {
     try {
       const response = await fetch("http://localhost:3333/sections");
+
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      if (data.length > 0) {
+        setSections(data);
+      }
+    } catch (error) {
+      console.log("Error", error);
+    }
+  }
+
+  async function getBrands() {
+    try {
+      const response = await fetch("http://localhost:3333/brands");
 
       if (!response.ok) {
         throw new Error(`Erro na requisição: ${response.status}`);
