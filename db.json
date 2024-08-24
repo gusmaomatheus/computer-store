@@ -1,0 +1,16 @@
+{
+  "sections": [
+    { "id": "0", "name": "Computadores" },
+    { "id": "1", "name": "Acessórios" },
+    { "id": "2", "name": "Impressoras" },
+    { "id": "3", "name": "Games" },
+    { "id": "4", "name": "Gadgets" }
+  ],
+  "brands": [
+    { "id": "0", "name": "Asus", "logo": "assets/images/asus-logo.png" },
+    { "id": "1", "name": "Dell", "logo": "assets/images/dell-logo.png" },
+    { "id": "2", "name": "HP", "logo": "assets/images/hp-logo.png" },
+    { "id": "3", "name": "Positivo", "logo": "assets/images/positivo-logo.png" },
+    { "id": "4", "name": "Xing Ling Genérico", "logo": "assets/images/xing-ling-logo.png" }
+  ]
+}
