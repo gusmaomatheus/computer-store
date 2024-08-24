@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Input from "./components/input";
 import DropDown from "./components/drop-down";
 import Button from "./components/button";
@@ -10,6 +10,28 @@ export default function App() {
   const [brands, setBrands] = useState([]);
   const [selectedSection, setSelectedSection] = useState(null);
   const [selectedBrand, setSelectedBrand] = useState(null);
+
+  useEffect(() => {
+    getSections();
+  }, []);
+
+  async function getSections() {
+    try {
+      const response = await fetch("http://localhost:3333/sections");
+
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      if (data.length > 0) {
+        setSections(data);
+      }
+    } catch (error) {
+      console.log("Error", error);
+    }
+  }
 
   const onChangeName = event => {
     setName(event.target.value);
