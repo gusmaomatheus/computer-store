@@ -6,54 +6,10 @@ import Button from "./components/button";
 export default function App() {
   const [name, setName] = useState(null);
   const [price, setPrice] = useState(null);
-  const [section, setSection] = useState(null);
-  const [brand, setBrand] = useState(null);
-
-  const sections = [
-    {
-      value: 0,
-      label: "Computadores",
-    },
-    {
-      value: 1,
-      label: "Acessórios",
-    },
-    {
-      value: 2,
-      label: "Impressoras",
-    },
-    {
-      value: 3,
-      label: "Games",
-    },
-    {
-      value: 4,
-      label: "Gadgets",
-    },
-  ];
-
-  const brands = [
-    {
-      value: 0,
-      label: "HP",
-    },
-    {
-      value: 1,
-      label: "Dell",
-    },
-    {
-      value: 2,
-      label: "Positivo",
-    },
-    {
-      value: 3,
-      label: "Asus",
-    },
-    {
-      value: 4,
-      label: "Xing Ling Genérico",
-    },
-  ];
+  const [sections, setSections] = useState([]);
+  const [brands, setBrands] = useState([]);
+  const [selectedSection, setSelectedSection] = useState(null);
+  const [selectedBrand, setSelectedBrand] = useState(null);
 
   const onChangeName = event => {
     setName(event.target.value);
@@ -64,16 +20,16 @@ export default function App() {
   };
 
   const onChangeSection = event => {
-    setSection(event.target.value);
+    setSelectedSection(event.target.value);
   };
 
   const onChangeBrand = event => {
-    setBrand(event.target.value);
+    setSelectedBrand(event.target.value);
   };
 
   return (
     <>
-      <header className=" w-[100%] h-[120px] flex flex-col justify-center">
+      <header className="w-[100%] h-[120px] flex flex-col justify-center">
         <h1 className="text-[48px] text-green-400 text-center font-semibold uppercase tracking-[4px]">
           product registration
         </h1>
