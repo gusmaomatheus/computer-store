@@ -14,8 +14,8 @@ export default function DropDown({ id, name, label, options, onChange }) {
           Select
         </option>
         {options.map((option, index) => (
-          <option key={index} value={option.value}>
-            {option.label}
+          <option key={index} value={option.id}>
+            {option.name}
           </option>
         ))}
       </select>
