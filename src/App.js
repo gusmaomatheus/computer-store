@@ -45,7 +45,7 @@ export default function App() {
       const data = await response.json();
 
       if (data.length > 0) {
-        setSections(data);
+        setBrands(data);
       }
     } catch (error) {
       console.log("Error", error);
