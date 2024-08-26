@@ -6,14 +6,20 @@ import Button from "./components/button";
 export default function App() {
   const [name, setName] = useState(null);
   const [price, setPrice] = useState(null);
+
   const [sections, setSections] = useState([]);
   const [brands, setBrands] = useState([]);
+  const [products, setProducts] = useState([]);
+
   const [selectedSection, setSelectedSection] = useState(null);
   const [selectedBrand, setSelectedBrand] = useState(null);
+
+  const [isLoadingProducts, setIsLoadingProducts] = useState(false);
 
   useEffect(() => {
     getSections();
     getBrands();
+    getProducts();
   }, []);
 
   async function getSections() {
@@ -49,6 +55,28 @@ export default function App() {
       }
     } catch (error) {
       console.log("Error", error);
+    }
+  }
+
+  async function getProducts() {
+    try {
+      setIsLoadingProducts(true);
+
+      const response = await fetch("http://localhost:3333/products");
+
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      if (data.length > 0) {
+        setProducts(data);
+      }
+    } catch (error) {
+      console.log("Error", error);
+    } finally {
+      setIsLoadingProducts(false);
     }
   }
 
