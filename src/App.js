@@ -2,6 +2,12 @@ import { useEffect, useState } from "react";
 import Input from "./components/input";
 import DropDown from "./components/drop-down";
 import Button from "./components/button";
+import Card from "./components/card";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons/faCircleNotch";
+
+library.add(faCircleNotch);
 
 export default function App() {
   const [name, setName] = useState(null);
@@ -134,6 +140,30 @@ export default function App() {
                 <Button id="insert-product" type="button" text="Insert" />
               </div>
             </form>
+          </article>
+        </section>
+        <section>
+          <article>
+            <h2 className="text-[36px] text-green-400 text-center font-medium uppercase tracking-[4px]">
+              list of the products
+            </h2>
+            <div className="flex flex-wrap justify-center gap-x-[30px] gap-y-[60px] my-[80px] mx-[40px]">
+              {isLoadingProducts ? (
+                <FontAwesomeIcon icon="fas fa-circle-notch" spin size="xl" className="text-green-400" />
+              ) : products.length > 0 ? (
+                products.map((product, index) => (
+                  <Card
+                    key={index}
+                    brandLogo={product.brandLogo}
+                    name={product.name}
+                    price={product.price}
+                    isNew={product.isNew}
+                  />
+                ))
+              ) : (
+                <p className="text-[22px] text-center">Nenhum produto cadastrado.</p>
+              )}
+            </div>
           </article>
         </section>
       </main>
