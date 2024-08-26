@@ -12,5 +12,6 @@
     { "id": "2", "name": "HP", "logo": "assets/images/hp-logo.png" },
     { "id": "3", "name": "Positivo", "logo": "assets/images/positivo-logo.png" },
     { "id": "4", "name": "Xing Ling Genérico", "logo": "assets/images/xing-ling-logo.png" }
-  ]
+  ],
+  "products": []
 }
