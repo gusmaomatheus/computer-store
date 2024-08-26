@@ -103,7 +103,7 @@ export default function App() {
               <DropDown id="section" name="section" label="Section" options={sections} onChange={onChangeSection} />
               <DropDown id="brand" name="brand" label="Brand" options={brands} onChange={onChangeBrand} />
               <div className="mt-[20px]">
-                <Button id="insert-product" type="button" text="Insert" color="green-400" />
+                <Button id="insert-product" type="button" text="Insert" />
               </div>
             </form>
           </article>
