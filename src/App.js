@@ -23,6 +23,7 @@ export default function App() {
   const [selectedBrand, setSelectedBrand] = useState(null);
 
   const [isLoadingProducts, setIsLoadingProducts] = useState(false);
+  const [isSubmtingForm, setIsSubmtingForm] = useState(false);
 
   useEffect(() => {
     getSections();
@@ -85,6 +86,50 @@ export default function App() {
       console.log("Error", error);
     } finally {
       setIsLoadingProducts(false);
+    }
+  }
+
+  async function addProduct() {
+    try {
+      setIsSubmtingForm(true);
+
+      if (!validateForm()) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+
+      const response = await fetch("http://localhost:3333/products", {
+        method: "POST",
+        body: {
+          section: selectedSection,
+          brand: selectedBrand,
+          brandLogo: brands.filter(brand => brand.id === selectedBrand)[0].logo,
+          name: name,
+          price: price,
+          isNew: isNew,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+
+      setProducts([
+        ...products,
+        {
+          section: selectedSection,
+          brand: selectedBrand,
+          brandLogo: brands.filter(brand => brand.id === selectedBrand)[0].logo,
+          name: name,
+          price: price,
+          isNew: isNew,
+        },
+      ]);
+
+      clearForm();
+    } catch (error) {
+      console.log("Error", error);
+    } finally {
+      setIsSubmtingForm(false);
     }
   }
 
@@ -167,7 +212,13 @@ export default function App() {
                 onClick={checkIsNew}
               />
 
-              <Button id="insert-product" type="button" text="Insert" />
+              <Button
+                id="insert-product"
+                type="button"
+                text={isSubmtingForm ? "Sending..." : "Insert"}
+                onClick={addProduct}
+                disabled={isSubmtingForm}
+              />
             </form>
           </article>
         </section>
