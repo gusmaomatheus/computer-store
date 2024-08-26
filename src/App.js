@@ -108,6 +108,14 @@ export default function App() {
     setIsNew(!isNew);
   };
 
+  const validateForm = () => {
+    if (!name || !price || !selectedBrand || !selectedSection) {
+      return false;
+    }
+
+    return true;
+  };
+
   return (
     <>
       <header className="w-[100%] h-[120px] flex flex-col justify-center">
