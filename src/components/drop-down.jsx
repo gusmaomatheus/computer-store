@@ -1,4 +1,4 @@
-export default function DropDown({ id, name, label, options, onChange }) {
+export default function DropDown({ id, name, label, value, options, onChange }) {
   return (
     <div className="flex flex-col gap-y-[8px]">
       <label htmlFor={id} className="text-[22px] pl-[2px]">
@@ -7,6 +7,7 @@ export default function DropDown({ id, name, label, options, onChange }) {
       <select
         id={id}
         name={name}
+        value={value}
         onChange={onChange}
         className="w-[350px] h-[50px] text-[22px] pl-[16px] rounded shadow focus:outline-0"
       >

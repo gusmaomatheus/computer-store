@@ -11,16 +11,16 @@ import Checkbox from "./components/checkbox";
 library.add(faCircleNotch);
 
 export default function App() {
-  const [name, setName] = useState(null);
-  const [price, setPrice] = useState(null);
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
   const [isNew, setIsNew] = useState(false);
 
   const [sections, setSections] = useState([]);
   const [brands, setBrands] = useState([]);
   const [products, setProducts] = useState([]);
 
-  const [selectedSection, setSelectedSection] = useState(null);
-  const [selectedBrand, setSelectedBrand] = useState(null);
+  const [selectedSection, setSelectedSection] = useState("");
+  const [selectedBrand, setSelectedBrand] = useState("");
 
   const [isLoadingProducts, setIsLoadingProducts] = useState(false);
   const [isSubmtingForm, setIsSubmtingForm] = useState(false);
@@ -94,19 +94,21 @@ export default function App() {
       setIsSubmtingForm(true);
 
       if (!validateForm()) {
-        throw new Error(`Erro na requisição: ${response.status}`);
+        throw new Error(`Erro na requisição: Formulário inválido`);
       }
+
+      let data = {
+        section: selectedSection,
+        brand: selectedBrand,
+        brandLogo: brands.filter(brand => brand.id === selectedBrand)[0].logo,
+        name: name,
+        price: price,
+        isNew: isNew,
+      };
 
       const response = await fetch("http://localhost:3333/products", {
         method: "POST",
-        body: {
-          section: selectedSection,
-          brand: selectedBrand,
-          brandLogo: brands.filter(brand => brand.id === selectedBrand)[0].logo,
-          name: name,
-          price: price,
-          isNew: isNew,
-        },
+        body: JSON.stringify(data),
       });
 
       if (!response.ok) {
@@ -162,12 +164,11 @@ export default function App() {
   };
 
   const clearForm = () => {
-    setName(null);
-    setPrice(null);
+    setName("");
+    setPrice("");
     setIsNew(false);
-
-    setSelectedBrand(null);
-    setSelectedSection(null);
+    setSelectedBrand("");
+    setSelectedSection("");
   };
 
   return (
@@ -202,14 +203,30 @@ export default function App() {
                 value={price}
                 onChange={onChangePrice}
               />
-              <DropDown id="section" name="section" label="Section" options={sections} onChange={onChangeSection} />
-              <DropDown id="brand" name="brand" label="Brand" options={brands} onChange={onChangeBrand} />
+              <DropDown
+                id="section"
+                name="section"
+                label="Section"
+                value={selectedSection}
+                options={sections}
+                onChange={onChangeSection}
+              />
+              <DropDown
+                id="brand"
+                name="brand"
+                label="Brand"
+                value={selectedBrand}
+                options={brands}
+                onChange={onChangeBrand}
+              />
 
               <Checkbox
                 id="is-new-product-check"
                 name="is-new-product-check"
                 label="This products is new?"
-                onClick={checkIsNew}
+                value={isNew}
+                isChecked={isNew}
+                onChange={checkIsNew}
               />
 
               <Button

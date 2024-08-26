@@ -1,4 +1,4 @@
-export default function Checkbox({ id, name, label, value, isChecked, onClick }) {
+export default function Checkbox({ id, name, label, value, isChecked, onChange }) {
   return (
     <div className="flex flex-row">
       <input
@@ -6,7 +6,7 @@ export default function Checkbox({ id, name, label, value, isChecked, onClick })
         name={name}
         type="checkbox"
         value={value}
-        onClick={onClick}
+        onChange={onChange}
         checked={isChecked}
         className="size-[20px] mt-[5px] mr-[12px]"
       />
