@@ -6,12 +6,14 @@ import Card from "./components/card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons/faCircleNotch";
+import Checkbox from "./components/checkbox";
 
 library.add(faCircleNotch);
 
 export default function App() {
   const [name, setName] = useState(null);
   const [price, setPrice] = useState(null);
+  const [isNew, setIsNew] = useState(false);
 
   const [sections, setSections] = useState([]);
   const [brands, setBrands] = useState([]);
@@ -102,6 +104,10 @@ export default function App() {
     setSelectedBrand(event.target.value);
   };
 
+  const checkIsNew = () => {
+    setIsNew(!isNew);
+  };
+
   return (
     <>
       <header className="w-[100%] h-[120px] flex flex-col justify-center">
@@ -136,9 +142,15 @@ export default function App() {
               />
               <DropDown id="section" name="section" label="Section" options={sections} onChange={onChangeSection} />
               <DropDown id="brand" name="brand" label="Brand" options={brands} onChange={onChangeBrand} />
-              <div className="mt-[20px]">
-                <Button id="insert-product" type="button" text="Insert" />
-              </div>
+
+              <Checkbox
+                id="is-new-product-check"
+                name="is-new-product-check"
+                label="This products is new?"
+                onClick={checkIsNew}
+              />
+
+              <Button id="insert-product" type="button" text="Insert" />
             </form>
           </article>
         </section>
