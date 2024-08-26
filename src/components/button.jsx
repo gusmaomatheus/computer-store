@@ -1,4 +1,4 @@
-export default function Button({ id, type, text, color, onClick }) {
+export default function Button({ id, type, text, onClick }) {
   return (
     <button
       id={id}
