@@ -116,6 +116,15 @@ export default function App() {
     return true;
   };
 
+  const clearForm = () => {
+    setName(null);
+    setPrice(null);
+    setIsNew(false);
+
+    setSelectedBrand(null);
+    setSelectedSection(null);
+  };
+
   return (
     <>
       <header className="w-[100%] h-[120px] flex flex-col justify-center">
