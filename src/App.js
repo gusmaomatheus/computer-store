@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import Input from "./components/input";
 import DropDown from "./components/drop-down";
 import Button from "./components/button";
-import Card from "./components/card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons/faCircleNotch";
 import Checkbox from "./components/checkbox";
+import Section from "./components/section";
 
 library.add(faCircleNotch);
 
@@ -244,19 +244,21 @@ export default function App() {
             <h2 className="text-[36px] text-green-400 text-center font-medium uppercase tracking-[4px]">
               list of the products
             </h2>
-            <div className="flex flex-wrap justify-center gap-x-[30px] gap-y-[60px] my-[80px] mx-[40px]">
+            <div className="flex flex-col gap-y-[60px] my-[80px] mx-[40px]">
               {isLoadingProducts ? (
                 <FontAwesomeIcon icon="fas fa-circle-notch" spin size="xl" className="text-green-400" />
               ) : products.length > 0 ? (
-                products.map((product, index) => (
-                  <Card
-                    key={index}
-                    brandLogo={product.brandLogo}
-                    name={product.name}
-                    price={product.price}
-                    isNew={product.isNew}
-                  />
-                ))
+                sections.map((section, index) =>
+                  products.filter(product => product.section === section.id).length > 0 ? (
+                    <Section
+                      key={index}
+                      title={section.name}
+                      items={products.filter(product => product.section === section.id)}
+                    />
+                  ) : (
+                    ""
+                  )
+                )
               ) : (
                 <p className="text-[22px] text-center">Nenhum produto cadastrado.</p>
               )}
