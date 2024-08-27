@@ -48,33 +48,5 @@
       "logo": "assets/images/xing-ling-logo.png"
     }
   ],
-  "products": [
-    {
-      "id": "f62b",
-      "section": "0",
-      "brand": "4",
-      "brandLogo": "assets/images/xing-ling-logo.png",
-      "name": "teste",
-      "price": "1",
-      "isNew": true
-    },
-    {
-      "id": "b7d5",
-      "section": "3",
-      "brand": "3",
-      "brandLogo": "assets/images/positivo-logo.png",
-      "name": "tesrt 2",
-      "price": "21",
-      "isNew": false
-    },
-    {
-      "id": "d2f1",
-      "section": "1",
-      "brand": "2",
-      "brandLogo": "assets/images/hp-logo.png",
-      "name": "tes5 31",
-      "price": "141",
-      "isNew": true
-    }
-  ]
+  "products": []
 }
