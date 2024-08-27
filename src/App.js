@@ -109,6 +109,7 @@ export default function App() {
       const response = await fetch("http://localhost:3333/products", {
         method: "POST",
         body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
       });
 
       if (!response.ok) {
