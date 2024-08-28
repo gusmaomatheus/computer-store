@@ -2,14 +2,9 @@ import { useEffect, useState } from "react";
 import Input from "./components/input";
 import DropDown from "./components/drop-down";
 import Button from "./components/button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faCircleNotch } from "@fortawesome/free-solid-svg-icons/faCircleNotch";
 import Checkbox from "./components/checkbox";
 import Section from "./components/section";
 import Swal from "sweetalert2";
-
-library.add(faCircleNotch);
 
 export default function App() {
   const [name, setName] = useState("");
@@ -257,9 +252,7 @@ export default function App() {
               list of the products
             </h2>
             <div className="flex flex-col gap-y-[60px] my-[80px] mx-[40px]">
-              {isLoadingProducts ? (
-                <FontAwesomeIcon icon="fas fa-circle-notch" spin size="xl" className="text-green-400" />
-              ) : products.length > 0 ? (
+              {products.length > 0 ? (
                 sections.map((section, index) =>
                   products.filter(product => product.section === section.id).length > 0 ? (
                     <Section
