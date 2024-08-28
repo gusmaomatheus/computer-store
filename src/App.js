@@ -18,9 +18,6 @@ export default function App() {
   const [selectedSection, setSelectedSection] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("");
 
-  const [isLoadingProducts, setIsLoadingProducts] = useState(false);
-  const [isSubmtingForm, setIsSubmtingForm] = useState(false);
-
   useEffect(() => {
     getSections();
     getBrands();
@@ -65,8 +62,6 @@ export default function App() {
 
   async function getProducts() {
     try {
-      setIsLoadingProducts(true);
-
       const response = await fetch("http://localhost:3333/products");
 
       if (!response.ok) {
@@ -80,15 +75,11 @@ export default function App() {
       }
     } catch (error) {
       console.log("Error", error);
-    } finally {
-      setIsLoadingProducts(false);
     }
   }
 
   async function addProduct() {
     try {
-      setIsSubmtingForm(true);
-
       if (!validateForm()) {
         throw new Error("Fill in all the form fields to register a product.");
       }
@@ -137,8 +128,6 @@ export default function App() {
         title: "Oopss...",
         text: error.message,
       });
-    } finally {
-      setIsSubmtingForm(false);
     }
   }
 
@@ -236,13 +225,7 @@ export default function App() {
                 onChange={checkIsNew}
               />
 
-              <Button
-                id="insert-product"
-                type="button"
-                text={isSubmtingForm ? "Sending..." : "Insert"}
-                onClick={addProduct}
-                disabled={isSubmtingForm}
-              />
+              <Button id="insert-product" type="button" text="Insert" onClick={addProduct} />
             </form>
           </article>
         </section>
