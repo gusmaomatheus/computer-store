@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# 🛒 Loja de Informática - SPA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é uma aplicação de página única (SPA) desenvolvida para a disciplina de **Programação para Web 2**. A aplicação permite o cadastro e a exibição de produtos em uma loja de informática, utilizando **React** para a construção da interface e **Tailwind CSS** para a estilização.
 
-## Available Scripts
+## 🧩 Funcionalidades
 
-In the project directory, you can run:
+- **📋 Cadastro de Produtos:** Um formulário simples permite a inserção de novos produtos na lista.
+- **📝 Exibição de Produtos:** Os produtos cadastrados são exibidos logo abaixo do formulário em uma lista organizada.
 
-### `npm start`
+## 📋 Requisitos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Antes de executar o projeto, certifique-se de que você tenha os seguintes requisitos instalados em seu ambiente:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Node.js](https://nodejs.org/pt)
 
-### `npm test`
+## 🚀 Tecnologias Utilizadas
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [**⚛️ React:**](https://react.dev/) Biblioteca JavaScript para construção da interface do usuário.
+- [**🎨 Tailwind CSS:**](https://tailwindcss.com/) Framework utilitário para estilização rápida e customizável.
+- [**⚠️ SweetAlert:**](https://sweetalert2.github.io/) Biblioteca para exibir alertas customizáveis.
+- [**🌐 JSON-Server:**](https://www.npmjs.com/package/json-server) Ferramenta para simular uma API REST em um ambiente local.
 
-### `npm run build`
+## 🛠️ Como Executar o Projeto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone o repositório:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```cmd
+   > git clone git@github.com:gusmaomatheus/basic-registration-spa.git
+   > cd basic-registration-spa
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Instale as dependências:
 
-### `npm run eject`
+   ```cmd
+   > npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Inicie o JSON-Server:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```cmd
+   > npx json-server --watch db.json --port 3001
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Inicie o servidor de desenvolvimento do React:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```cmd
+   > npm run start
+   ```
 
-## Learn More
+5. Acesse a aplicação em: [http://localhost:3000](http://localhost:3000)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## ✨ Considerações Finais
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Este projeto foi desenvolvido como parte de uma atividade avaliativa, com foco em praticar a construção de SPAs utilizando React e Tailwind, além de simular a interação com uma API REST usando JSON-Server.
