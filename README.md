@@ -38,7 +38,7 @@ Antes de executar o projeto, certifique-se de que você tenha os seguintes requi
 3. Inicie o JSON-Server:
 
    ```cmd
-   > npx json-server --watch db.json --port 3001
+   > npx json-server --watch db.json --port 3333
    ```
 
 4. Inicie o servidor de desenvolvimento do React:
