@@ -7,6 +7,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons/faCircleNotch";
 import Checkbox from "./components/checkbox";
 import Section from "./components/section";
+import Swal from "sweetalert2";
 
 library.add(faCircleNotch);
 
@@ -36,7 +37,7 @@ export default function App() {
       const response = await fetch("http://localhost:3333/sections");
 
       if (!response.ok) {
-        throw new Error(`Erro na requisição: ${response.status}`);
+        throw new Error("Internal error");
       }
 
       const data = await response.json();
@@ -45,7 +46,7 @@ export default function App() {
         setSections(data);
       }
     } catch (error) {
-      console.log("Error", error);
+      console.log(error);
     }
   }
 
@@ -54,7 +55,7 @@ export default function App() {
       const response = await fetch("http://localhost:3333/brands");
 
       if (!response.ok) {
-        throw new Error(`Erro na requisição: ${response.status}`);
+        throw new Error("Internal error");
       }
 
       const data = await response.json();
@@ -63,7 +64,7 @@ export default function App() {
         setBrands(data);
       }
     } catch (error) {
-      console.log("Error", error);
+      console.log(error);
     }
   }
 
@@ -74,7 +75,7 @@ export default function App() {
       const response = await fetch("http://localhost:3333/products");
 
       if (!response.ok) {
-        throw new Error(`Erro na requisição: ${response.status}`);
+        throw new Error("Internal error");
       }
 
       const data = await response.json();
@@ -94,7 +95,7 @@ export default function App() {
       setIsSubmtingForm(true);
 
       if (!validateForm()) {
-        throw new Error(`Erro na requisição: Formulário inválido`);
+        throw new Error("Fill in all the form fields to register a product.");
       }
 
       let data = {
@@ -113,7 +114,7 @@ export default function App() {
       });
 
       if (!response.ok) {
-        throw new Error(`Erro na requisição: ${response.status}`);
+        throw new Error("Internal error");
       }
 
       setProducts([
@@ -128,9 +129,19 @@ export default function App() {
         },
       ]);
 
+      Swal.fire({
+        icon: "success",
+        title: "Success",
+        text: "A new product has been successfully registered.",
+      });
+
       clearForm();
     } catch (error) {
-      console.log("Error", error);
+      Swal.fire({
+        icon: "error",
+        title: "Oopss...",
+        text: error.message,
+      });
     } finally {
       setIsSubmtingForm(false);
     }
