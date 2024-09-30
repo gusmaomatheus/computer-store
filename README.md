@@ -1,6 +1,6 @@
-# 🛒 Loja de Informática - SPA
+# 🛒 Loja de Informática
 
-Este projeto é uma aplicação de página única (SPA) desenvolvida para a disciplina de **Programação para Web 2**. A aplicação permite o cadastro e a exibição de produtos em uma loja de informática, utilizando **React** para a construção da interface e **Tailwind CSS** para a estilização.
+Este projeto é uma simples página desenvolvida para a disciplina de **Programação para Web 2**. A aplicação permite o cadastro e a exibição de produtos em uma loja de informática, utilizando **React** para a construção da interface e **Tailwind CSS** para a estilização.
 
 ## 🧩 Funcionalidades
 
@@ -25,8 +25,8 @@ Antes de executar o projeto, certifique-se de que você tenha os seguintes requi
 1. Clone o repositório:
 
    ```cmd
-   > git clone git@github.com:gusmaomatheus/basic-registration-spa.git
-   > cd basic-registration-spa
+   > git clone git@github.com:gusmaomatheus/computer-store.git
+   > cd computer-store
    ```
 
 2. Instale as dependências:
@@ -51,4 +51,4 @@ Antes de executar o projeto, certifique-se de que você tenha os seguintes requi
 
 ## ✨ Considerações Finais
 
-Este projeto foi desenvolvido como parte de uma atividade avaliativa, com foco em praticar a construção de SPAs utilizando React e Tailwind, além de simular a interação com uma API REST usando JSON-Server.
+Este projeto foi desenvolvido como parte de uma atividade avaliativa, com foco em praticar a construção de páginas utilizando React e Tailwind, além de simular a interação com uma API REST usando JSON-Server.
